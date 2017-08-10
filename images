@@ -1,0 +1,65 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.6
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jul 10, 2017 at 08:22 AM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.9
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `registration`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE IF NOT EXISTS `images` (
+  `uid` int(11) NOT NULL,
+  `imageid` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`imageid`),
+  KEY `uid` (`uid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=843 ;
+
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`uid`, `imageid`, `image`) VALUES
+(6, 2, 'uploads/a426e45c6e1b6e7c0588a69b35da024d.0'),
+(6, 4, 'uploads/6d26d28f0396f8173a08f3c6f84c8959.2'),
+(5, 6, 'uploads/4d31488162793a9ebf7b9e39a9d78cf8.1'),
+(5, 8, 'uploads/2f0eaa39dc6840f2e7608c42e7514801.3'),
+(5, 11, 'uploads/e3261c6aece1017ad0ddf06cb6ed2402.0'),
+(5, 13, 'uploads/fcb4fd38c53b301ab9e3929415beecac.2'),
+(5, 14, 'uploads/443ea98bce32b36789318617f4caef6b.0'),
+(9, 15, 'uploads/a8eaecf4f5e8944e7f022c22c62c464b.0'),
+(9, 16, 'uploads/3fb74750d7407131020f483e60105189.1'),
+(1, 18, 'uploads/7ecdb603238ba70b96b8e370b07ae468.0'),
+(1, 20, 'uploads/898ac9308cb660b4ba8a46dee1658b81.2'),
+(10, 26, 'uploads/8028264dd749bb8e6297294ce5ef115f.1'),
+(10, 27, 'uploads/7c34502c376e6ca979494ea11c4ba7ad.0'),
+(10, 28, 'uploads/023abca30d5274abc45bb97b3a4ecbf9.0'),
+(43, 802, 'uploads/8ffdcd73b1373c8ab5ade5179a5b6297.0'),
+(48, 805, 'uploads/7c3a7bbac95ff17d898e25216997f6db.0'),
+(42, 838, 'uploads/35d9f3b9973882b292166df71874ab00.0'),
+(54, 840, 'uploads/e63cd6ee19ba44aa469879dec2e02b2d.0'),
+(54, 841, 'uploads/177ba31aa1dff7f955766186e74f19d9.0'),
+(54, 842, 'uploads/aedd5a71b56e8a409648a4e417fb4a77.0');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `images`
+--
+ALTER TABLE `images`
+  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `udetail` (`uid`);
