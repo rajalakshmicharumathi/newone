@@ -1,0 +1,122 @@
+SELECT count(aid) FROM `forumanswer` WHERE qid=1
+
+
+
+SELECT COUNT(aid) AS `Answers` FROM `forumdetails` `q` JOIN `forumanswer` `a` ON `a`.`qid` = `q`.`qid` GROUP BY `q`.`qid`
+
+
+
+select sname from subcategory WHERE cid=1
+
+
+SELECT question,COUNT(aid) AS `Answers` FROM `forumdetails` `q` LEFT JOIN `forumanswer` `a` ON `a`.`qid` = `q`.`qid` where status='granted' GROUP BY `q`.`qid`
+
+SELECT question,answer AS `Answers` FROM `forumdetails` `q` RIGHT JOIN `forumanswer` `a` ON `a`.`qid` = `q`.`qid` where status='granted' GROUP BY `a`.`answer`
+
+
+
+var id=$("#id").val();
+	$.ajax({  
+      url: "<?php echo site_url();?>Forum/quesdesc",  
+      type: "POST",  
+      data:{'id':id},
+      dataType:"json",
+        success: function (data) {
+          if(data!="")
+          {
+          console.log(data);
+          var peopleHTML = "";
+ 
+         var obj = jQuery.parseJSON(JSON.stringify(data));   
+    	 peopleHTML += "<div>";
+     	 
+      for (var key in obj) {
+    		
+       
+           peopleHTML += "<div>";
+            peopleHTML += "<b>Question: "+obj[key]["question"] +"</b>";
+            peopleHTML += "<br><br>" ;
+            peopleHTML +=obj[key]["description"] ;	
+            peopleHTML += "<hr>" ;
+            peopleHTML += "</div>";
+             
+           
+      
+      }
+       peopleHTML += "</div>";
+      $("#result").append(peopleHTML);
+         }
+         },
+       });
+
+$.ajax({  
+      url: "<?php echo site_url();?>Forum/qpage",  
+      type: "POST",  
+      data:{'id':id},
+      dataType:"json",
+        success: function (data) {
+          if(data!="")
+          {
+          console.log(data);
+          var peopleHTML = "";
+ 
+         var obj = jQuery.parseJSON(JSON.stringify(data));   
+    	
+     	 
+      for (var key in obj) {
+    	
+        peopleHTML += "<table cellpadding='10' cellspacing='10' border=0>";
+           peopleHTML += "<tr>";
+           peopleHTML += "<td>";
+            peopleHTML += obj[key]["uname"] ;	
+            peopleHTML += "</td>";
+           peopleHTML += "</tr>";
+           peopleHTML += "<tr>";
+           peopleHTML += "<td>";
+           peopleHTML += "Answer:  "+obj[key]["answers"] ;	
+           peopleHTML += "</td>";
+            peopleHTML += "</tr>";
+            peopleHTML += "</table>";
+             
+           
+      
+      }
+        
+      $("#results").append(peopleHTML);
+         }
+         },
+       });
+
+
+
+
+
+
+
+
+
+
+
+
+avatar:
+
+
+
+select uname,avatar,answer from forum f JOIN forumanswer a ON f.uid=a.uid WHERE a.qid=3 GROUP BY a.aid
+
+
+
+
+  $select =array(
+            'uname',
+            'avatar',
+            'answer',
+            );
+        $query=$this->db->select($select)
+        ->from('forum f')
+        ->join('forumanswer a','f.uid = a.uid')
+        ->where('a.qid',$qid)
+        ->group_by('f.uid')
+        ->get()
+        ->result_array();
+        return $query;
