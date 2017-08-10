@@ -1,0 +1,5 @@
+IHOST
+	FTP upload 
+	/run/user/1000/gvfs/smb-share:server=192.168.1.49,share=htdocs/ihostnew/webadmin/main.php
+	/run/user/1000/gvfs/smb-share:server=192.168.1.49,share=htdocs/ihostnew/webadmin/template/conf_nas.php
+	/run/user/1000/gvfs/smb-share:server=192.168.1.49,share=htdocs/ihostnew/class/function.php
