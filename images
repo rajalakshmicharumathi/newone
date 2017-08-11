@@ -1,3 +1,0 @@
-new image
-added extra content
-  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `udetail` (`uid`);
